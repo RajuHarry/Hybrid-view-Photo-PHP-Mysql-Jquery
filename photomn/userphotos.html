@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Swiper demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.1/normalize.css" rel="stylesheet" type="text/css">
+    <!-- Demo styles -->
+    <style>
+    html, body {
+        position: relative;
+        height: 100%;
+    }
+    body {
+        background: #fff;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color:#000;
+        margin: 0;
+        padding: 0;
+    }
+    .swiper-container {
+        width: 100%;
+        height: 100%;
+    }
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+        
+    }
+    .swiper-slide img {
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 100%;
+      -ms-transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      position: absolute;
+      left: 50%;
+      top: 50%;
+    }
+        
+.v-center {
+  height: 100vh;
+  width: 100%;
+  display: table;
+  position: relative;
+  text-align: center;
+}
+
+.v-center > div {
+  display: table-cell;
+  vertical-align: middle;
+  position: relative;
+  top: -10%;
+}
+
+.btn {
+  font-size: 3vmin;
+  padding: 0.75em 1.5em;
+  background-color: #fff;
+  border: 1px solid #bbb;
+  color: #333;
+  text-decoration: none;
+  display: inline;
+  border-radius: 4px;
+  -webkit-transition: background-color 1s ease;
+  -moz-transition: background-color 1s ease;
+  transition: background-color 1s ease;
+}
+
+.btn:hover {
+  background-color: #ddd;
+  -webkit-transition: background-color 1s ease;
+  -moz-transition: background-color 1s ease;
+  transition: background-color 1s ease;
+}
+
+.btn-small {
+  padding: .75em 1em;
+  font-size: 0.8em;
+}
+
+.modal-box {
+  display: none;
+  position: absolute;
+  z-index: 1000;
+  width: 90%;
+  background: white;
+  border-bottom: 1px solid #aaa;
+  border-radius: 4px;
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-clip: padding-box;
+}
+@media (min-width: 32em) {
+
+.modal-box { width: 90%; }
+}
+
+
+.modal-box .modal-header {
+  padding: 2% 4%;
+  border-bottom: 1px solid #ddd;
+}
+.modal-box header{padding: 2% 4%;border-bottom: 1px solid #ddd;}
+.modal-box header h3,
+.modal-box header h4,
+.modal-box .modal-header h3,
+.modal-box .modal-header h4 { margin: 0; }
+
+.modal-box .modal-body { padding: 2em 1.5em; }
+
+.modal-box footer,
+.modal-box .modal-footer {
+  padding: 1em;
+  border-top: 1px solid #ddd;
+  background: rgba(0, 0, 0, 0.02);
+  text-align: right;
+}
+
+.modal-overlay {
+  opacity: 0;
+  filter: alpha(opacity=0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 900;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9) !important;
+}
+
+a.close {
+  line-height: 1;
+  font-size: 150%;
+  position: absolute;
+  top: 7px;
+  right: 10px;
+  text-decoration: none;
+  color: #bbb;
+}
+
+a.close:hover {
+  color: #222;
+  -webkit-transition: color 1s ease;
+  -moz-transition: color 1s ease;
+  transition: color 1s ease;
+} 
+.swiper-slide img{cursor: pointer;}     
+.getimgfrmdv{width:100%;display: block;margin: 0px auto;text-align: center;}  
+.thumbimgfloatleft{
+    display: block;
+    margin: 0px auto;
+    text-align: center;
+    float: left;
+    width: 70px;
+    height: 70px;
+    margin-right: 12px;margin-bottom: 12px;
+}
+.thumbimgfloatleft img{display: block;margin: 0px auto;text-align: center;width:100%;} 
+        .thumbimgfloatleft.lastdiv{margin-right: 0px;}        
+.clearelement{display: block;margin: 0px auto;text-align: center;clear: both;height: 0px;content: '';}  
+.setasprofilepic,.rmvasprofilepic{display: block;float: left;margin: 0px auto;cursor: pointer;}     
+.setasprofilepic{margin-right: 20px;}  
+.thumbimgcontent{display: block; margin: 0px auto;padding: 20px;} 
+.modal-box{top:30%;}       
+    </style>
+<script src="js/jquery-1.11.1.min.js"></script>     
+<script src="js/swiper.min.js"></script>    
+</head>
+<body>
+    <!-- Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            
+                    
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination swiper-pagination-white"></div>
+        <!-- Navigation -->
+    </div>
+    <div class='thumbimgcontent'>
+        <div class="clearelement"></div>
+    </div>
+    <!-- Swiper JS -->
+    
+
+    <!-- Initialize Swiper -->
+    <script>
+    function enableswiper(){
+        var swiper = new Swiper('.swiper-container', {
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        // Disable preloading of all images
+        preloadImages: false,
+        // Enable lazy loading
+        lazyLoading: true
+    });
+    }
+    </script>
+<div class="popupall modal-box" >
+  <header> <a class="js-modal-close close">×</a>
+    <h3 class="errordv">&nbsp;</h3>
+  </header>
+  <div class="modal-body">
+   <img src="" class="getimgfrmdv">
+  </div>
+  <footer>
+      <div class="setasprofilepic">Set as Profile pic</div>
+      <div class="rmvasprofilepic" title="delete">Remove</div>
+      <a class="btn btn-small js-modal-close">Close</a> 
+      <div class="clearelement"></div>
+      
+  </footer>
+</div>  
+
+<script>
+var getUrlParameter = function getUrlParameter(sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+        }
+    }
+};    
+$(function(){
+
+     var getbodyheight = $(window).outerHeight(); 
+     var windowH = parseInt(window.innerHeight/1.5);                     
+     var windowget = parseInt(($(window).height())/2);
+     var wrapperH = parseInt(($('body').height()));
+     //console.log(windowH+" "+wrapperH);
+     if(windowH < wrapperH) {                            
+         $('.swiper-container').css({'height':(windowH)+'px'});
+     }    
+var globalmnurl="http://www.yoursite.com/";  
+var uprofile_id = getUrlParameter('uprofile_id');   
+        //console.log(uprofile_id);
+		$.ajax({type: "POST",url: globalmnurl+"app-data/getuserimghybrid.php",data:{profile_id: uprofile_id},dataType:"json",cache:false,
+			beforeSend: function() 
+			{
+				
+			},
+			uploadProgress: function(event, position, total, percentComplete) 
+			{
+				
+			},
+			success: function(response, textStatus, jqXHR) 
+			{
+				if (response[0].logged === true) {
+                    var appendhtml ='';
+                    var appendhtmlthumb ='';
+                    var lasdiv ='';
+                    for (var i = 0; i < response[0].urlimg.length; i++)
+					    {
+					        
+					        var urlimgprofile = response[0].urlimg[i].urlimgget;
+                            var mnurlimg = globalmnurl+'userfiles/preview_'+urlimgprofile+'.jpg';
+				            var thumbimg = globalmnurl+'userfiles/thumb_'+urlimgprofile+'.jpg';
+                            var photoid  = response[0].urlimg[i].urlimg_photo_id;    
+		                    //console.log(mnurlimg);
+                            appendhtml += '<div class="swiper-slide">';
+                            appendhtml += '<img data-src="'+mnurlimg+'" class="swiper-lazy" data-modal-id="popupall" data-mnsrc="'+mnurlimg+'" data-photoid="'+photoid+'">';
+                            appendhtml += '<div class="swiper-lazy-preloader swiper-lazy-preloader-white"></div>';
+                            appendhtml += '</div>';
+                            //alert(mnurlimg);
+                            //console.log(parseInt( response[0].urlimg.length - 1));
+                            if(i == parseInt( response[0].urlimg.length - 1))
+                                {
+                                    lasdiv = 'lastdiv';
+                                }
+                            else
+                                {
+                                    lasdiv = '';
+                                }
+                            appendhtmlthumb += '<div class="thumbimgfloatleft '+lasdiv+'">';
+                            appendhtmlthumb += '<img src="'+thumbimg+'"  data-modal-id="popupall" data-mnsrc="'+mnurlimg+'" data-photoid="'+photoid+'">';
+                            appendhtmlthumb += '</div>';
+                            
+                            
+					    }
+                        $('.swiper-wrapper').append(appendhtml);
+                        $('.thumbimgcontent').prepend(appendhtmlthumb);
+                        enableswiper();
+						var getbodyheight = $(window).outerHeight(); 
+					     var windowH = parseInt(window.innerHeight/1.5);                     
+					     var windowget = parseInt(($(window).height())/2);
+					     var wrapperH = parseInt(($('body').height()));
+					     if(windowH > wrapperH) {                            
+					         $('.swiper-container').css({'height':(windowH)+'px'});
+					     }
+				}
+				else
+				{
+				}
+				
+					
+				
+			},
+			complete: function(response) 
+			{
+				
+			},
+			error: function(jqXHR, textStatus, errorThrown)
+			{
+			}
+});
+    
+    
+/*globalmnurl+"like.php?from=pic"
+globalmnurl+"like.php?from=delete"
+
+photo_id: getmanimg_idofu,*/
+    
+var appendthis =  ("<div class='modal-overlay js-modal-close'></div>");
+
+$(document).on('click','img[data-modal-id]' , function(e) {
+e.preventDefault();
+var getimg = $(this).attr('data-mnsrc');
+var getphotoid = $(this).attr('data-photoid');    
+$('.popupall .getimgfrmdv').attr('src',getimg);  
+$('.popupall .setasprofilepic').attr('data-photoid',getphotoid);  
+$('.popupall .rmvasprofilepic').attr('data-photoid',getphotoid);  
+    
+$("body").append(appendthis);
+$(".modal-overlay").fadeTo(500, 0.7);
+$(".js-modalbox").fadeIn(500);
+    var modalBox = $(this).attr('data-modal-id');
+    $('.'+modalBox).fadeIn($(this).data());
+var getbodywidth = $(window).outerWidth(); 
+var windowW = parseInt(window.innerWidth); 
+var windowH = parseInt(window.innerHeight); 
+//alert(getbodywidth+" "+windowW+""+windowH)
+$(".modal-overlay").css({'width':getbodywidth,'height': (windowH*1.5)})                    
+
+}); 
+    
+$(document).on ('click','.setasprofilepic',function() {  
+var getphotoid = $.trim($(this).attr('data-photoid'));
+    console.log(getphotoid);
+    $.ajax({type: "POST",url: globalmnurl+"like.php?from=pic",data:{photo_id: getphotoid},dataType:"json",cache:false,
+            beforeSend: function() 
+            {},
+            uploadProgress: function(event, position, total, percentComplete) 
+            {},
+            success: function(response, textStatus, jqXHR) 
+            { 
+                $('.popupall h3.errordv').html(response.messageget); 
+                setTimeout(function() {$('.popupall h3.errordv').html('&nbsp;');}, 3000);
+				$(".modal-box, .modal-overlay").fadeOut(500, function() {
+			        $(".modal-overlay").remove();
+			    });
+				window.location.reload();
+            },
+            complete: function(response) 
+            {},
+            error: function(jqXHR, textStatus, errorThrown)
+            {}
+    });
+    
+});
+    
+$(document).on ('click','.rmvasprofilepic',function() {  
+var getphotoid = $.trim($(this).attr('data-photoid'));
+    console.log(getphotoid);  
+    $.ajax({type: "POST",url: globalmnurl+"like.php?from=delete",data:{photo_id: getphotoid},dataType:"json",cache:false,
+            beforeSend: function() 
+            {},
+            uploadProgress: function(event, position, total, percentComplete) 
+            {},
+            success: function(response, textStatus, jqXHR) 
+            { 
+               $('.popupall h3.errordv').html(response.messageget); 
+                setTimeout(function() {$('.popupall h3.errordv').html('&nbsp;');}, 3000); 
+				$(".modal-box, .modal-overlay").fadeOut(500, function() {
+			        $(".modal-overlay").remove();
+			    });
+				window.location.reload();
+            },
+            complete: function(response) 
+            {},
+            error: function(jqXHR, textStatus, errorThrown)
+            {}
+    });
+    
+});    
+$(document).on ('click','.js-modal-close, .modal-overlay',function() {
+    $(".modal-box, .modal-overlay").fadeOut(500, function() {
+        $(".modal-overlay").remove();
+    });
+ 
+});
+ 
+$(window).resize(function() {
+    $(".modal-box").css({
+        top: 20,
+        left: ($(window).width() - $(".modal-box").outerWidth()) / 2.5
+    });
+});
+ 
+$(window).resize();
+ 
+});
+</script>    
+</body>
+</html>
